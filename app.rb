@@ -14,7 +14,7 @@ post '/gateway' do
   #     resp = JSON.parse resp.body
   #     respond_message "There are #{resp['open_issues_count']} open issues on castlestory-game"
   # end
-  return respond_message "#{message}"
+  return respond_message "#{message}  #{params[:channel_name]}  #{params[:team_id]}  #{params[:timestamp]}"
 end
 
 def respond_message message
