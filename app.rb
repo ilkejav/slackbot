@@ -4,6 +4,7 @@ require 'json'
 
 post '/gateway' do
   # message = params[:text].gsub(params[:trigger_word], '').strip
+  message = params[:text]
 
   # action, repo = message.split('_').map {|c| c.strip.downcase }
   # repo_url = "https://api.github.com/Sauropod-Studio/castlestory-game"
@@ -14,7 +15,7 @@ post '/gateway' do
   #     resp = JSON.parse resp.body
   #     respond_message "There are #{resp['open_issues_count']} open issues on castlestory-game"
   # end
-  return respond_message "hello"
+  return respond_message "#{message}"
 end
 
 def respond_message message
