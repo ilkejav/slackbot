@@ -8,7 +8,7 @@ post '/gateway' do
 
   message = params[:text].gsub(params[:trigger_word], '').strip
 
-  return message
+  return respond_message message
 
   # action, repo = message.split('_').map {|c| c.strip.downcase }
 
