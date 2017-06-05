@@ -5,11 +5,10 @@ require 'json'
 
 
 post '/gateway' do
-  github = Github.new
+
   message = params[:text].gsub(params[:trigger_word], '').strip
 
   action, repo = message.split('_').map {|c| c.strip.downcase }
-  # repo_url = "https://api.github.com/Sauropod-Studio/castlestory-game"
 
   case action
 
@@ -27,8 +26,12 @@ post '/gateway' do
       return JSON.pretty_generate(
       	scanthis.run("pull_requests")
       	)
+  	
+  	else
+  		return message
+
   end
-  # return respond_message "#{message}  #{params[:channel_name]}  #{params[:team_id]}  #{params[:timestamp]}"
+  
 end
 
 def respond_message message
