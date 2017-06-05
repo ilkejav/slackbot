@@ -34,5 +34,10 @@ end
 
 def respond_message message
   content_type :json
+  {:text => message}.to_json
+end
+
+def respond_attachment message
+  content_type :json
   {:attachments => {:text => message} }}.to_json
 end
