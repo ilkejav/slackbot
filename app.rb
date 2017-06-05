@@ -14,12 +14,12 @@ post '/gateway' do
 
   case message
 
-  	when "hello"
-  		return respond_message "byebye"
+  	when "status"
+  		return respond_message "is work"
     
     when 'issues'
       scanthis = Github_get.new
-      return respond_message scanthis.run("issues")
+      return respond_message "#{scanthis.run("issues")}"
   	
   	when 'pull_requests'
       scanthis = Github_get.new
