@@ -1,5 +1,5 @@
 require 'sinatra'
-# require 'httparty'
+require_relative "scanthis.rb"
 require 'github_api'
 require 'json'
 
@@ -12,11 +12,21 @@ post '/gateway' do
   # repo_url = "https://api.github.com/Sauropod-Studio/castlestory-game"
 
   case action
-    when 'repos'
-      # resp = HTTParty.get(repo_url)
-      # resp = JSON.parse resp.body
-      repolist = github.repos.list user: 'ilkejav'
-      respond_message "#{repolist}"
+
+  	when "hello"
+  		return "byebye"
+    
+    when 'issues'
+      scanthis = Github_get.new
+      return JSON.pretty_generate(
+      	scanthis.run("issues")
+      	)
+  	
+  	when 'pull_requests'
+      scanthis = Github_get.new
+      return JSON.pretty_generate(
+      	scanthis.run("pull_requests")
+      	)
   end
   # return respond_message "#{message}  #{params[:channel_name]}  #{params[:team_id]}  #{params[:timestamp]}"
 end
