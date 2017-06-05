@@ -19,9 +19,7 @@ post '/gateway' do
     
     when 'issues'
       scanthis = Github_get.new
-      return JSON.pretty_generate(
-      	scanthis.run("issues")
-      	)
+      return respond_message scanthis.run("issues")
   	
   	when 'pull_requests'
       scanthis = Github_get.new
