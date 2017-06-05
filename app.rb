@@ -8,29 +8,31 @@ post '/gateway' do
 
   message = params[:text].gsub(params[:trigger_word], '').strip
 
-  action, repo = message.split('_').map {|c| c.strip.downcase }
+  return message
 
-  case action
+  # action, repo = message.split('_').map {|c| c.strip.downcase }
 
-  	when "hello"
-  		return "byebye"
+  # case action
+
+  # 	when "hello"
+  # 		return "byebye"
     
-    when 'issues'
-      scanthis = Github_get.new
-      return JSON.pretty_generate(
-      	scanthis.run("issues")
-      	)
+  #   when 'issues'
+  #     scanthis = Github_get.new
+  #     return JSON.pretty_generate(
+  #     	scanthis.run("issues")
+  #     	)
   	
-  	when 'pull_requests'
-      scanthis = Github_get.new
-      return JSON.pretty_generate(
-      	scanthis.run("pull_requests")
-      	)
+  # 	when 'pull_requests'
+  #     scanthis = Github_get.new
+  #     return JSON.pretty_generate(
+  #     	scanthis.run("pull_requests")
+  #     	)
   	
-  	else
-  		return message
+  # 	else
+  # 		return message
 
-  end
+  # end
   
 end
 
