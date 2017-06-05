@@ -12,7 +12,7 @@ post '/gateway' do
 
   # action, repo = message.split('_').map {|c| c.strip.downcase }
 
-  case action
+  case message
 
   	when "hello"
   		return respond_message "byebye"
