@@ -34,9 +34,11 @@ end
 
 def respond_message message
   content_type :json{
-  	:text => message, 
-  	:attachments => [
-  		{:text => "sdvksdvjk"},
-  		{:text => "sdvksdvjk"}
-  	]}.to_json
+  	:text => message
+  	# , 
+  	# :attachments => [
+  	# 	{:text => "sdvksdvjk"},
+  	# 	{:text => "sdvksdvjk"}
+  	# ]
+  	}.to_json
 end
