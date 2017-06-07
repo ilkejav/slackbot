@@ -5,30 +5,27 @@ require 'json'
 
 
 post '/gateway' do
-
-  message = params[:text].gsub(params[:trigger_word], '').strip
+	params.to_s
+  # message = params[:text].gsub(params[:trigger_word], '').strip
 
   # return respond_message message
 
   # action, repo = message.split('_').map {|c| c.strip.downcase }
 
-  case message
+  # case message
 
-  	when "status"
-  		return respond_message "is work"
-    
-    when 'issues'
-      scanthis = Github_get.new
-      return respond_message "#{scanthis.run("issues")}"
-  	
-  	when 'pull_requests'
-      scanthis = Github_get.new
-      return respond_message "#{scanthis.run("pull_requests")}"
-  	
-  	else
-  		return message
+  	# when "status"
+		# respond_message "is work"
+    # 
+    # when 'issues'
+		# scanthis = Github_get.new
+		# respond_message "#{scanthis.run("issues")}"
+  	# 
+  	# when 'pull_requests'
+		# scanthis = Github_get.new
+		# respond_message "#{scanthis.run("pull_requests")}"
 
-  end
+  # end
   
 end
 
