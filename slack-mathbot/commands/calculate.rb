@@ -2,7 +2,7 @@ module SlackMathbot
   module Commands
     class Calculate < SlackRubyBot::Commands::Base
       command 'calculate' do |client, data, _match|
-        client.chat_postMessage(
+        client.say(
         channel: data.channel,
         text: "bwarg"
         # ,
