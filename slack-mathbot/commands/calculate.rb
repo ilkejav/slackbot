@@ -4,7 +4,7 @@ module SlackMathbot
       command 'calculate' do |client, data, _match|
         client.say(
         	channel: data.channel, 
-        	text: '5 \n second line'
+        	text: "5 \n second line"
       #   	,
       #   	as_user: true,
       #   	attachments: [
