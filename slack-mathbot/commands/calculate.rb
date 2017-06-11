@@ -4,7 +4,8 @@ module SlackMathbot
       command 'calculate' do |client, data, _match|
         client.say(
         	channel: data.channel, 
-        	text: '4',
+        	text: '5',
+        	as_user: true,
         	attachments: [
         		{
 		            fallback: "New ticket from Andrea Lee - Ticket #1943: Can't rest my password - https://groove.hq/path/to/ticket/1943",
