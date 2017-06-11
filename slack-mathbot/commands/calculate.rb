@@ -4,16 +4,17 @@ module SlackMathbot
       command 'calculate' do |client, data, _match|
         client.chat_postMessage(
         channel: data.channel,
-        text: "bwarg",
-        as_user: true,
-        attachments: [
-          {
-            fallback: "blargh blargh blargh",
-            title: "wort wort wort",
-            text: "bwarg bwarg bwarg bwag bwag",
-            color: '#00FF00'
-          }
-        ]
+        text: "bwarg"
+        # ,
+        # as_user: true,
+        # attachments: [
+        #   {
+        #     fallback: "blargh blargh blargh",
+        #     title: "wort wort wort",
+        #     text: "bwarg bwarg bwarg bwag bwag",
+        #     color: '#00FF00'
+        #   }
+        # ]
       )
       end
     end
