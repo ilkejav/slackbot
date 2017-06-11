@@ -4,6 +4,7 @@ module SlackMathbot
       command 'calculate' do |client, data, _match|
         client.chat_postMessage(
         channel: data.channel,
+        text: "bwarg",
         as_user: true,
         attachments: [
           {
