@@ -15,14 +15,15 @@ class Github_get
 	def run param = nil
 		
 		begin
-
+			
 			case param
 			when "login"
 				return github
 
 			when "issues"
 				info = Array.new
-				list = github.issues.list org:'Sauropod-Studio', state:'all', filter:'all', page:"0", per_page:'10'
+				list = github.issues.list org:'Sauropod-Studio',  state:'all',  filter:'all',  page:"0",  per_page:'10'
+
 				list.each do |resource|
 					unless resource[:pull_request]
 						info.push({
@@ -37,7 +38,8 @@ class Github_get
 
 			when "pull_requests"
 				info = Array.new
-				list = github.issues.list org:'Sauropod-Studio', state:'all', filter:'all', page:"0", per_page:'10'
+				list = github.issues.list org:'Sauropod-Studio',  state:'all',  filter:'all',  page:"0",  per_page:'10'
+				
 				list.each do |resource|
 					if resource[:pull_request]
 						info.push({
@@ -51,10 +53,30 @@ class Github_get
 				return info
 
 			when "milestones"
-				return github.issues.milestones.list org:'Sauropod-Studio'
+				info = ""
+				# list = github.issues.list org:'Sauropod-Studio', state:'all', filter:'all', page:"0", per_page:'10', milestone: '0.9.1'
+				return github.issues.milestones.list org:'Sauropod-Studio',  state:'all', sort: 'due_date', direction: 'asc'
 
-			when "collaborators"
-				return github.repos.collaborators.list org:'Sauropod-Studio'
+				# list.each do |resource|
+				# 	info += "#{resource[:title]} #{resource[:number]} #{resource[:state]} \n "
+				# end
+
+				# return info
+
+			when "actions"
+				return github.issues.list.extend_with_actions org:'Sauropod-Studio',  state:'all',  filter:'all',  page:"0",  per_page:'10'
+
+			when "members"
+				info = Array.new
+				list = github.orgs.members.list 'Sauropod-Studio'
+				
+				list.each do |resource|
+					info.push({
+						:login => resource[:login]
+					})
+
+				end
+				return info
 			end
 		
 		rescue Github::Error::GithubError => e
