@@ -11,7 +11,7 @@ module SlackMathbot
 
         begin
         
-          case _match.split(' ').last
+          case _match.to_s.split(' ').last
            
             when "login"
               message = github
