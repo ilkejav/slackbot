@@ -1,3 +1,6 @@
 require 'slack-ruby-bot'
 require 'slack-mathbot/commands/calculate'
+require 'slack-mathbot/commands/scan'
 require 'slack-mathbot/bot'
+require 'github_api'
+require 'json'

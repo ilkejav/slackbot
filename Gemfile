@@ -5,7 +5,7 @@ gem 'puma'
 gem 'sinatra'
 gem 'dotenv'
 gem 'celluloid-io'
-# gem 'github_api'
+gem 'github_api'
 
 group :development, :test do
   gem 'rake'

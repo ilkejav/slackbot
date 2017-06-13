@@ -5,16 +5,6 @@ module SlackMathbot
         client.say(
         channel: data.channel,
         text: "bwarg"
-        # ,
-        # as_user: true,
-        # attachments: [
-        #   {
-        #     fallback: "blargh blargh blargh",
-        #     title: "wort wort wort",
-        #     text: "bwarg bwarg bwarg bwag bwag",
-        #     color: '#00FF00'
-        #   }
-        # ]
       )
       end
     end
