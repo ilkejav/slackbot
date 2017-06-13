@@ -7,7 +7,7 @@ module SlackMathbot
         :user => 'ilkejav',
         :repo => 'castlestory-game'
 
-        message = "this is the default message"
+        message = "this is the default message #{data} #{_match}"
 
         begin
         
